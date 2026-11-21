@@ -1,8 +1,7 @@
-/*
-int arr[] = {2, 5, 8, 12, 16, 23, 38};
-int target = 16;
+/*int arr[] = {3, 7, 11, 15, 19};
+int target = 3; */
 
-// Expected: 4*/
+// Expected: 0
 
 #include <stdio.h>
 
@@ -37,8 +36,8 @@ int BS( int arr[], int size, int target )
 
 int main()
 {
-    int arr[] = { 2, 5, 8, 12, 16, 23, 38 };
-    int target = 16;
+    int arr[] = { 3, 7, 11, 15, 19 };
+    int target = arr[0];
 
     int size = sizeof( arr ) / sizeof( arr[0] );
 
