@@ -4,6 +4,7 @@ int target = 16;
 
 // Expected: 4*/
 
+#include <stdio.h>
 
 int BS( int arr[], int size, int target )
 {
@@ -21,16 +22,16 @@ int BS( int arr[], int size, int target )
 
         if ( arr[mid] < target )
         {
-            mid = left - 1;
+            left = mid + 1;
         }
         
         else
         {
-            mid = right + 1;
+            right = mid - 1;
         }
     }
-
     return -1;
+
 }
 
 
