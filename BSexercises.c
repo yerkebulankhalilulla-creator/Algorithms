@@ -1,56 +1,48 @@
-/*int arr[] = {3, 7, 11, 15, 19};
-int target = 3; */
-
-// Expected: 0
+/*Find the index where the target should be inserted to maintain sorted order.
+int arr[] = {1, 3, 5, 7, 9};
+int target = 6;
+*/
+// Expected: 3
 
 #include <stdio.h>
 
-int BS( int arr[], int size, int target )
+int SearchInsert(int arr[], int size, int target)
 {
     int left = 0;
     int right = size - 1;
 
-    while ( left <= right )
+    while (left <= right)
     {
-        int mid = left + ( right - left ) / 2;
+        int mid = left + (right - left) / 2;
 
-        if ( arr[mid] == target )
+        if (arr[mid] == target)
         {
             return mid;
         }
 
-        if ( arr[mid] < target )
+        if (arr[mid] < target)
         {
             left = mid + 1;
         }
-        
         else
         {
             right = mid - 1;
         }
     }
-    return -1;
 
+    return left;
 }
 
-
-int main()
+int main(void)
 {
-    int arr[] = { 3, 7, 11, 15, 19 };
-    int target = arr[0];
+    int arr[] = {1, 3, 5, 7, 9};
+    int target = 6;
 
-    int size = sizeof( arr ) / sizeof( arr[0] );
+    int size = sizeof(arr) / sizeof(arr[0]);
 
-    int result = BS( arr, size, target );
+    int result = SearchInsert(arr, size, target);
 
-    if ( result != -1 )
-    {
-        printf("%d", result);
-    }
-    else
-    {
-        printf("Not found\n");
-    }
+    printf("Insertion position: %d\n", result);
 
     return 0;
 }
