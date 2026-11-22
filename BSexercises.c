@@ -1,8 +1,8 @@
-/*Find the index where the target should be inserted to maintain sorted order.
-int arr[] = {1, 3, 5, 7, 9};
-int target = 6;
+/*Why it matters: Standard binary search stops at any matching index; 
+this forces you to keep shrinking the right boundary even after finding a match.
+Test case: arr = {2, 5, 5, 5, 5, 8, 10}, target = 5 $\rightarrow$ returns 1.
 */
-// Expected: 3
+
 
 #include <stdio.h>
 
@@ -10,33 +10,34 @@ int SearchInsert(int arr[], int size, int target)
 {
     int left = 0;
     int right = size - 1;
+    int ans = -1;
 
-    while (left <= right)
+    while ( left <= right )
     {
-        int mid = left + (right - left) / 2;
-
-        if (arr[mid] == target)
+        int mid = left + ( right - left ) / 2;
+        
+        if ( arr[mid] == target )
         {
-            return mid;
+            ans = mid;
         }
-
-        if (arr[mid] < target)
+        
+        if ( arr[mid] < target )
         {
             left = mid + 1;
         }
+        
         else
         {
             right = mid - 1;
         }
     }
-
-    return left;
+    return ans;
 }
 
 int main(void)
 {
-    int arr[] = {1, 3, 5, 7, 9};
-    int target = 6;
+    int arr[] = {2, 5, 5, 5, 5, 8, 10};
+    int target = 5;
 
     int size = sizeof(arr) / sizeof(arr[0]);
 
@@ -46,3 +47,4 @@ int main(void)
 
     return 0;
 }
+
